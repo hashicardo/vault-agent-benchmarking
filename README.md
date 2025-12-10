@@ -7,7 +7,7 @@ The objective is to obtain two distinct benchmarks:
 
 The [`bootstrap.sh`](./scripts/bootstrap.sh) script does this automatically by running a `remote-exec` provisioner. This is only done to see the output dynamically on the screen as soon as you run `terraform apply`.
 
-Scroll to 'How it works' for an explanation.
+Scroll to ['How it works'](#how-this-works) for an explanation.
 
 ## Try it out!
 Copy the repo to run locally:
