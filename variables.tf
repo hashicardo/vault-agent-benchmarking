@@ -1,7 +1,7 @@
 variable "number_of_apps" {
   type        = number
   description = "This represents the number of apps that require a config file."
-  default     = 1000
+  default     = 200
 }
 
 variable "instance_type" {

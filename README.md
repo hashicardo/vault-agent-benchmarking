@@ -146,7 +146,7 @@ $VAULT_ADDR/v1/sys/quotas/rate-limit/Global | jq
 ## How this works
 - Terraform creates the EC2, secrets and triggers the execution of the bootstrap script with a provisioner.
 - The authentication of the agent is also created by terraform with approle. Check all the configs in [`vault.tf`](./vault.tf)
-- Additionally, terraform also creates the agent config and the rendered bootstrap script. This is just 
+- Additionally, terraform also creates the agent config and the rendered bootstrap script inside a directory called `generated/`. This is mostly just for visualization but the provisioner does take the rendered bootstrap.sh to copy it to the target machine and execute it from there.
 
 ### The bootstrap script
 The idea of the script is to configure and start the agent and rotate secrets. Simultaneously it generates the two benchmarks explained above like this:
