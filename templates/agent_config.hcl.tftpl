@@ -1,0 +1,40 @@
+pid_file = "./pidfile"
+log_file = "/var/log/vault-agent.log"
+
+vault {
+  address = "${vault_addr}"
+  retry {
+    num_retries = 5
+  }
+}
+
+auto_auth {
+  method {
+    type = "approle"
+    config = {
+      role_id_file_path = "/tmp/approle/roleid"
+      secret_id_file_path = "/tmp/approle/secretid"
+      remove_secret_id_file_after_reading = false
+    }
+  }
+
+  sink "file" {
+    config = {
+      path = "/tmp/approle/sink"
+    }
+  }
+}
+
+template_config {
+  static_secret_render_interval = "10m"
+  exit_on_retry_failure = true
+  max_connections_per_host = 20
+}
+
+%{ for t in templates ~}
+template {
+  source      = "${t.source}"
+  destination = "${t.destination}"
+  command     = "/usr/local/bin/store_info.sh ${t.idx}"
+}
+%{ endfor ~}

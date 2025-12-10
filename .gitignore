@@ -1,0 +1,121 @@
+############################################
+# Terraform Core
+############################################
+
+# Local Terraform directories
+**/.terraform/*
+**/.terraform.lock.hcl
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Override files (CLI overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Plan files
+*.tfplan
+*.plan
+
+############################################
+# Terraform Variables (Secrets)
+############################################
+
+# Ignore all tfvars by default (safe)
+*.tfvars
+*.tfvars.json
+
+# If you WANT to commit non-secret tfvars, whitelist them like this:
+# !example.tfvars
+
+############################################
+# Terraform Cloud / HCP
+############################################
+
+# CLI config
+.terraformrc
+terraform.rc
+
+############################################
+# Modules (downloaded)
+############################################
+
+# In case modules are pulled into custom dirs
+**/modules/.terraform/*
+**/vendor/.terraform/*
+
+############################################
+# Sensitive Files (General)
+############################################
+
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+*.env
+.env
+.env.*
+
+############################################
+# OS Artifacts
+############################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+############################################
+# Editor / IDE
+############################################
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains
+.idea/
+*.iml
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+
+############################################
+# Logs & Temp
+############################################
+
+*.log
+tmp/
+temp/
+.tmp/
+
+############################################
+# Archives
+############################################
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+############################################
+# GENERATED: no need
+############################################
+generated

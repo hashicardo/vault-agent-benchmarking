@@ -1,0 +1,7 @@
+path "${secrets_path}" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "${secrets_path}/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}

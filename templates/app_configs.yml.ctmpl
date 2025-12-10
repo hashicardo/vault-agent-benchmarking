@@ -1,0 +1,23 @@
+#cloud-config
+write_files:
+%{ for t in templates ~}
+  - path: ${t.source}
+    permissions: '0644'
+    owner: root:root
+    content: |
+        # Dummy of an application configuration file
+        app:
+        name: example-application
+        environment: production
+
+        database:
+        host: db.internal.example.com
+        port: 5432
+        name: appdb
+
+        #################################
+        #   Vault-rendered credentials  #
+        #################################
+        username: "{{ with secret \"fi-secrets/data/secret-${t.idx}\" }}{{ .Data.data.username }}{{ end }}"
+        password: "{{ with secret \"fi-secrets/data/secret-${t.idx}\" }}{{ .Data.data.password }}{{ end }}"
+%{ endfor ~}
